@@ -53,8 +53,13 @@ export function updateBusinessContext(historyType, input, result) {
 
 // What should already be sitting in the textarea when a founder opens a
 // downstream tool, so they never have to retype their idea from scratch.
+// Tools whose input box is NOT "describe your business idea" — either the
+// idea originates here (Business Idea) or the box is a free-form question
+// (AI Mentor) — so it should never be silently prefilled with the idea text.
+const NO_PREFILL_TYPES = new Set(["Business Idea", "AI Mentor"]);
+
 export function getPrefillInput(historyType) {
-  if (historyType === "Business Idea") return "";
+  if (NO_PREFILL_TYPES.has(historyType)) return "";
   const ctx = getBusinessContext();
   return ctx.ideaText || "";
 }

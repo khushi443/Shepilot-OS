@@ -28,9 +28,10 @@ export function AuthProvider({ children }) {
       value={{
         currentUser,
         isLoggedIn: !!currentUser,
+        loading,
       }}
     >
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }

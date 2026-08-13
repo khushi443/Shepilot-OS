@@ -29,6 +29,11 @@ End with:
 A single sentence an investor could repeat to describe this company.
 
 Keep every slide's bullets specific to this business — no generic filler.
+
+Do not invent traction, revenue, user counts, or financial figures that
+weren't given to you. If real traction or financial data isn't available,
+say so plainly on that slide (e.g. "Pre-launch — no traction yet" or
+"Financial projections not yet available") instead of making numbers up.
 `;
 
 export default function PitchDeck() {

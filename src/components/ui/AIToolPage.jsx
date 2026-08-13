@@ -3,7 +3,7 @@ import { Sparkles } from "lucide-react";
 import DashboardShell from "../app/DashboardShell";
 import SectionHeader from "../app/SectionHeader";
 import { useAIGenerator } from "../../hooks/useAIGenerator";
-import { getPrefillInput } from "../../utils/businessContext";
+import { hasBusinessContext } from "../../utils/businessContext";
 import ResultCard from "./ResultCard";
 import ErrorCard from "./ErrorCard";
 import GenerateButton from "./GenerateButton";
@@ -46,8 +46,11 @@ export default function AIToolPage({
   });
 
   // Only meaningful for downstream tools — the Business Idea page is where
-  // this context originates, so it never shows its own indicator.
-  const isUsingPriorContext = historyType !== "Business Idea" && Boolean(getPrefillInput(historyType));
+  // this context originates, so it never shows its own indicator. Based on
+  // whether context exists at all, not on whether the input box happens to
+  // be prefilled (AI Mentor's box is a free-form question and is never
+  // prefilled, but it still receives full context in its prompt).
+  const isUsingPriorContext = historyType !== "Business Idea" && hasBusinessContext();
 
   return (
     <DashboardShell title={eyebrow} subtitle={description}>
