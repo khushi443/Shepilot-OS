@@ -54,10 +54,6 @@ export default function FinancePlanner() {
       resultTitle="AI Financial Report"
       resultEmoji="📊"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#F9CB28]/20 via-[#1B2040] to-[#FF8A00]/20"
-      buttonGradientClass="from-[#F9CB28] to-[#FF8A00]"
-      buttonTextClass="font-bold text-black"
-      accentTextClass="text-[#F9CB28]"
     />
   );
 }

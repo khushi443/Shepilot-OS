@@ -50,10 +50,6 @@ export default function MarketingPlanner() {
       resultTitle="AI Marketing Strategy"
       resultEmoji="📈"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#FF6CAB]/20 via-[#1B2040] to-[#7366FF]/20"
-      buttonGradientClass="from-[#FF6CAB] to-[#7366FF]"
-      buttonTextClass="font-bold text-white"
-      accentTextClass="text-[#FF6CAB]"
     />
   );
 }

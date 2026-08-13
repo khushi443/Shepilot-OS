@@ -55,10 +55,6 @@ export default function BusinessIdea() {
       resultTitle="AI Generated Business Plan"
       resultEmoji="📋"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#464EFE]/20 via-[#1B2040] to-[#CE60F0]/20"
-      buttonGradientClass="from-[#CE60F0] to-[#464EFE]"
-      buttonTextClass="font-bold text-white"
-      accentTextClass="text-[#CE60F0]"
     />
   );
 }

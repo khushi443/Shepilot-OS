@@ -16,6 +16,13 @@ Respond in Markdown:
 Keep it warm but no fluff — a busy founder should be able to act on this immediately.
 `;
 
+const SUGGESTED_QUESTIONS = [
+  "How can I get my first 10 customers?",
+  "What should I focus on this month?",
+  "How do I price my product?",
+  "How do I pitch to investors with no traction yet?",
+];
+
 export default function AIMentor() {
   return (
     <AIToolPage
@@ -31,10 +38,7 @@ export default function AIMentor() {
       resultTitle="AI Response"
       resultEmoji="🤖"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#464EFE]/20 via-[#1B2040] to-[#CE60F0]/20"
-      buttonGradientClass="from-[#CE60F0] to-[#464EFE]"
-      buttonTextClass="font-bold text-white"
-      accentTextClass="text-[#CE60F0]"
+      suggestedQuestions={SUGGESTED_QUESTIONS}
       minLength={5}
       rows={6}
     />

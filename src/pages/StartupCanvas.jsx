@@ -74,10 +74,6 @@ export default function StartupCanvas() {
       resultTitle="AI Startup Blueprint"
       resultEmoji="📄"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#00C9A7]/20 via-[#1B2040] to-[#00E5FF]/20"
-      buttonGradientClass="from-[#00C9A7] to-[#00E5FF]"
-      buttonTextClass="font-bold text-black"
-      accentTextClass="text-[#00E5FF]"
       rows={7}
     />
   );

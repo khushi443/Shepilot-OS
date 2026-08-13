@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import toast from "react-hot-toast";
 import {
   LayoutDashboard,
   Sparkles,
@@ -36,6 +35,11 @@ const WORKSPACE_NAV = [
   { label: "Pitch Deck", to: "/pitch", icon: Presentation },
   { label: "Launch Roadmap", to: "/roadmap", icon: Map },
   { label: "AI Mentor", to: "/mentor", icon: Bot },
+];
+
+const FOOTER_NAV = [
+  { label: "Help & Support", to: "/help", icon: HelpCircle },
+  { label: "Settings", to: "/settings", icon: Settings },
 ];
 
 function NavItem({ item, active, onNavigate }) {
@@ -104,20 +108,9 @@ function SidebarContent({ currentUser, onLogout, onNavigate }) {
 
       <div className="px-3 pb-3">
         <div className="space-y-0.5 border-t border-[var(--sp-border)] pt-3">
-          <button
-            onClick={() => toast("Help & Support is coming soon.")}
-            className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13.5px] font-medium text-[var(--sp-text-muted)] transition-colors hover:bg-[var(--sp-surface-muted)] hover:text-[var(--sp-text)]"
-          >
-            <HelpCircle size={17} className="text-[var(--sp-text-faint)]" />
-            Help &amp; Support
-          </button>
-          <button
-            onClick={() => toast("Settings are coming soon.")}
-            className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13.5px] font-medium text-[var(--sp-text-muted)] transition-colors hover:bg-[var(--sp-surface-muted)] hover:text-[var(--sp-text)]"
-          >
-            <Settings size={17} className="text-[var(--sp-text-faint)]" />
-            Settings
-          </button>
+          {FOOTER_NAV.map((item) => (
+            <NavItem key={item.label} item={item} active={path === item.to} onNavigate={onNavigate} />
+          ))}
         </div>
 
         {/* Profile */}

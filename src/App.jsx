@@ -18,6 +18,8 @@ const AIMentor = lazy(() => import("./pages/AIMentor.jsx"));
 const PitchDeck = lazy(() => import("./pages/PitchDeck.jsx"));
 const StartupCanvas = lazy(() => import("./pages/StartupCanvas.jsx"));
 const StartupValidator = lazy(() => import("./pages/StartupValidator.jsx"));
+const Help = lazy(() => import("./pages/Help.jsx"));
+const Settings = lazy(() => import("./pages/Settings.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound.jsx"));
 
 function RouteFallback() {
@@ -48,6 +50,8 @@ export default function App() {
         <Route path="/pitch" element={<ProtectedRoute><PitchDeck /></ProtectedRoute>} />
         <Route path="/startup-canvas" element={<ProtectedRoute><StartupCanvas /></ProtectedRoute>} />
         <Route path="/startup-validator" element={<ProtectedRoute><StartupValidator /></ProtectedRoute>} />
+        <Route path="/help" element={<ProtectedRoute><Help /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
 
         {/* Catch-all */}
         <Route path="*" element={<NotFound />} />

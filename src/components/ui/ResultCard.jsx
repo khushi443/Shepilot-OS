@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Copy, Check, Share2, FileDown, ArrowRight, Bot } from "lucide-react";
 import ValidationScore from "../validator/ValidationScore";
 import ValidationMetrics from "../validator/ValidationMetrics";
 import { downloadPDF } from "../../services/pdfService";
@@ -40,8 +41,6 @@ export default function ResultCard({
   content,
   loading,
   downloadName,
-
-  // NEW
   toolType = "business",
 }) {
   const [copied, setCopied] = useState(false);
@@ -58,9 +57,7 @@ export default function ResultCard({
     try {
       await navigator.clipboard.writeText(content);
       setCopied(true);
-
       toast.success("Copied to clipboard");
-
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error(err);
@@ -101,179 +98,168 @@ export default function ResultCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mt-10 rounded-[30px] border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-2xl"
+      className="mt-8 rounded-[18px] border p-5 sm:p-7"
+      style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface)", boxShadow: "var(--sp-shadow)" }}
     >
       {/* Header */}
-
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-
-        <div className="flex items-center gap-4">
-
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 to-violet-500 text-3xl shadow-lg">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3.5">
+          <div
+            className="flex h-11 w-11 items-center justify-center rounded-[12px] text-xl"
+            style={{ background: "var(--sp-primary-soft)" }}
+          >
             {emoji}
           </div>
-
           <div>
-
-            <h2 className="text-2xl font-black text-white md:text-3xl">
-              {title}
-            </h2>
-
-            <p className="mt-1 text-white/60">
+            <h2 className="text-[17px] font-bold text-[var(--sp-text)] sm:text-[19px]">{title}</h2>
+            <p className="mt-0.5 text-[12.5px] text-[var(--sp-text-muted)]">
               AI-generated insights tailored for this tool.
             </p>
-
           </div>
-
         </div>
 
         {!loading && content && (
-
-          <div className="flex gap-3">
-
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={handleCopy}
-              className="rounded-2xl bg-white/10 px-5 py-3 font-semibold transition hover:bg-white/20"
+              className="inline-flex items-center gap-1.5 rounded-[10px] border px-3.5 py-2 text-[12.5px] font-semibold transition-colors hover:bg-[var(--sp-surface-muted)]"
+              style={{ borderColor: "var(--sp-border)", color: "var(--sp-text)" }}
             >
-              {copied ? "✅ Copied" : "📋 Copy"}
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+              {copied ? "Copied" : "Copy"}
             </button>
-
             <button
               onClick={handleShare}
-              className="rounded-2xl bg-white/10 px-5 py-3 font-semibold transition hover:bg-white/20"
+              className="inline-flex items-center gap-1.5 rounded-[10px] border px-3.5 py-2 text-[12.5px] font-semibold transition-colors hover:bg-[var(--sp-surface-muted)]"
+              style={{ borderColor: "var(--sp-border)", color: "var(--sp-text)" }}
             >
-              🔗 Share
+              <Share2 size={14} />
+              Share
             </button>
-
             <button
               onClick={handleDownload}
-              className="rounded-2xl bg-cyan-500 px-5 py-3 font-semibold transition hover:bg-cyan-600"
+              className="inline-flex items-center gap-1.5 rounded-[10px] px-3.5 py-2 text-[12.5px] font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ background: "var(--sp-primary)" }}
             >
-              📄 Export PDF
+              <FileDown size={14} />
+              Export PDF
             </button>
-
           </div>
-
         )}
-
       </div>
 
-      <div className="mt-8">
-
+      <div className="mt-6">
         {loading ? (
-
-          <Skeleton />
-
-        ) : (
-
-          <>
-                      {/* AI Response */}
-
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#1B2040] to-[#232B4A] p-8 shadow-xl">
-
-              <div className="mb-8 flex items-center gap-3">
-
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 text-2xl">
-                  🤖
-                </div>
-
-                <div>
-
-                  <h3 className="text-2xl font-bold text-white">
-                    {title}
-                  </h3>
-
-                  <p className="text-sm text-white/60">
-                    AI-generated insights tailored for this tool.
-                  </p>
-
-                </div>
-
+          <div
+            className="rounded-[14px] border p-6"
+            style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface-muted)" }}
+          >
+            <div className="mb-5 flex items-center gap-2.5">
+              <div
+                className="flex h-8 w-8 items-center justify-center rounded-full"
+                style={{ background: "var(--sp-primary-soft)" }}
+              >
+                <Bot size={15} className="text-[var(--sp-primary)]" />
               </div>
-
-              <div className={`prose prose-invert relative max-w-none ${!expanded ? "max-h-[420px] overflow-hidden" : ""}`}>
-
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    h1: ({ children }) => (
-                      <h1 className="mb-5 text-3xl font-black">
-                        {children}
-                      </h1>
-                    ),
-
-                    h2: ({ children }) => (
-                      <h2 className="mt-8 mb-4 text-2xl font-bold text-cyan-300">
-                        {children}
-                      </h2>
-                    ),
-
-                    h3: ({ children }) => (
-                      <h3 className="mt-6 mb-3 text-xl font-semibold text-purple-300">
-                        {children}
-                      </h3>
-                    ),
-
-                    p: ({ children }) => (
-                      <p className="mb-4 leading-8 text-white/90">
-                        {children}
-                      </p>
-                    ),
-
-                    ul: ({ children }) => (
-                      <ul className="list-disc space-y-2 pl-6">
-                        {children}
-                      </ul>
-                    ),
-
-                    ol: ({ children }) => (
-                      <ol className="list-decimal space-y-2 pl-6">
-                        {children}
-                      </ol>
-                    ),
-
-                    table: ({ children }) => (
-                      <table className="mt-6 w-full overflow-hidden rounded-xl border border-white/20">
-                        {children}
-                      </table>
-                    ),
-
-                    th: ({ children }) => (
-                      <th className="border border-white/20 bg-white/10 p-3">
-                        {children}
-                      </th>
-                    ),
-
-                    td: ({ children }) => (
-                      <td className="border border-white/20 p-3">
-                        {children}
-                      </td>
-                    ),
-                  }}
+              <p className="text-[13px] font-medium text-[var(--sp-text-muted)]">ShePilot is thinking…</p>
+            </div>
+            <Skeleton />
+          </div>
+        ) : (
+          <>
+            {/* AI Response */}
+            <div
+              className="rounded-[14px] border p-5 sm:p-7"
+              style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface-muted)" }}
+            >
+              <div className="relative">
+                <div
+                  className={`prose prose-sm max-w-none sm:prose-base ${
+                    !expanded ? "max-h-[420px] overflow-hidden" : ""
+                  }`}
+                  style={{ color: "var(--sp-text)" }}
                 >
-                  {content}
-                </ReactMarkdown>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h1: ({ children }) => (
+                        <h1 className="mb-4 text-[22px] font-black text-[var(--sp-text)]">{children}</h1>
+                      ),
+                      h2: ({ children }) => (
+                        <h2 className="mb-3 mt-7 text-[17px] font-bold text-[var(--sp-primary-dark)]">
+                          {children}
+                        </h2>
+                      ),
+                      h3: ({ children }) => (
+                        <h3 className="mb-2.5 mt-5 text-[14.5px] font-semibold text-[var(--sp-accent)]">
+                          {children}
+                        </h3>
+                      ),
+                      p: ({ children }) => (
+                        <p className="mb-3.5 text-[13.5px] leading-7 text-[var(--sp-text)]">{children}</p>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="list-disc space-y-1.5 pl-5 text-[13.5px] text-[var(--sp-text)]">
+                          {children}
+                        </ul>
+                      ),
+                      ol: ({ children }) => (
+                        <ol className="list-decimal space-y-1.5 pl-5 text-[13.5px] text-[var(--sp-text)]">
+                          {children}
+                        </ol>
+                      ),
+                      strong: ({ children }) => (
+                        <strong className="font-semibold text-[var(--sp-text)]">{children}</strong>
+                      ),
+                      table: ({ children }) => (
+                        <div className="overflow-x-auto">
+                          <table
+                            className="mt-4 w-full overflow-hidden rounded-[10px] border text-[13px]"
+                            style={{ borderColor: "var(--sp-border)" }}
+                          >
+                            {children}
+                          </table>
+                        </div>
+                      ),
+                      th: ({ children }) => (
+                        <th
+                          className="border p-2.5 text-left font-semibold text-[var(--sp-text)]"
+                          style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface)" }}
+                        >
+                          {children}
+                        </th>
+                      ),
+                      td: ({ children }) => (
+                        <td className="border p-2.5 text-[var(--sp-text-muted)]" style={{ borderColor: "var(--sp-border)" }}>
+                          {children}
+                        </td>
+                      ),
+                    }}
+                  >
+                    {content}
+                  </ReactMarkdown>
+                </div>
 
                 {!expanded && (
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1B2040] to-transparent" />
+                  <div
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+                    style={{ background: "linear-gradient(to top, var(--sp-surface-muted), transparent)" }}
+                  />
                 )}
-
               </div>
 
               {isLong && (
                 <button
                   onClick={() => setExpanded((e) => !e)}
-                  className="mx-auto mt-4 block rounded-full bg-white/10 px-6 py-2 text-sm font-semibold transition hover:bg-white/20"
+                  className="mx-auto mt-4 block rounded-full border px-5 py-2 text-[12.5px] font-semibold transition-colors hover:bg-[var(--sp-surface)]"
+                  style={{ borderColor: "var(--sp-border)", color: "var(--sp-text)" }}
                 >
                   {expanded ? "Show less ▲" : "Show full result ▼"}
                 </button>
               )}
-
             </div>
-
-            {/* Only for Business Idea Tool */}
 
             {(toolType === "business" || toolType === "canvas") && (
               <>
@@ -283,36 +269,38 @@ export default function ResultCard({
             )}
             {toolType === "validator" && (
               <>
-                  <ValidationScore content={content} />
-                  <ValidationMetrics content={content} />
+                <ValidationScore content={content} />
+                <ValidationMetrics content={content} />
               </>
             )}
 
             {nextStep && (
-              <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl border border-white/10 bg-gradient-to-r from-[#CE60F0]/10 to-[#464EFE]/10 p-6 sm:flex-row">
+              <div
+                className="mt-8 flex flex-col items-center justify-between gap-4 rounded-[14px] border p-5 sm:flex-row"
+                style={{ borderColor: "var(--sp-primary-soft)", background: "var(--sp-primary-soft)" }}
+              >
                 <div>
-                  <p className="text-sm uppercase tracking-[3px] text-white/50">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.09em] text-[var(--sp-primary-dark)]">
                     Keep the momentum going
                   </p>
-                  <p className="mt-1 text-lg font-bold">
+                  <p className="mt-1 text-[14.5px] font-semibold text-[var(--sp-text)]">
                     Next up: {nextStep.emoji} {nextStep.label}
                   </p>
                 </div>
 
                 <button
                   onClick={() => navigate(nextStep.path)}
-                  className="shrink-0 rounded-2xl bg-gradient-to-r from-[#CE60F0] to-[#464EFE] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-[10px] px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ background: "var(--sp-primary)" }}
                 >
-                  Continue to {nextStep.short} →
+                  Continue to {nextStep.short}
+                  <ArrowRight size={14} />
                 </button>
               </div>
             )}
           </>
-
         )}
-
       </div>
-
     </motion.div>
   );
 }

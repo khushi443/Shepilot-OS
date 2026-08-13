@@ -46,10 +46,6 @@ export default function PitchDeck() {
       resultTitle="AI Generated Investor Pitch Deck"
       resultEmoji="📑"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#7928CA]/20 via-[#1B2040] to-[#FF0080]/20"
-      buttonGradientClass="from-[#7928CA] to-[#FF0080]"
-      buttonTextClass="font-bold text-white"
-      accentTextClass="text-[#FF4ECD]"
     />
   );
 }

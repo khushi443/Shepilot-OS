@@ -7,104 +7,57 @@ export default function BusinessCanvas({ content }) {
   if (!nodes.length) return null;
 
   return (
-    <section className="mt-16">
+    <section className="mt-10">
       {/* Header */}
-      <div className="flex items-center gap-4 mb-10">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-cyan-500 to-violet-500 flex items-center justify-center text-3xl shadow-lg">
+      <div className="mb-6 flex items-center gap-3.5">
+        <div
+          className="flex h-11 w-11 items-center justify-center rounded-[12px] text-xl"
+          style={{ background: "var(--sp-accent-soft)" }}
+        >
           📊
         </div>
-
         <div>
-          <h2 className="text-3xl font-black text-white">
-            Business Snapshot
-          </h2>
-
-          <p className="text-white/60 mt-1">
+          <h2 className="text-[17px] font-bold text-[var(--sp-text)]">Business Snapshot</h2>
+          <p className="text-[12.5px] text-[var(--sp-text-muted)]">
             AI extracted the most important business insights from your idea.
           </p>
         </div>
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {nodes.map((node, index) => (
           <motion.div
             key={node.key}
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.45,
-              delay: index * 0.08,
+            transition={{ duration: 0.35, delay: index * 0.05 }}
+            className="rounded-[16px] border p-5 transition-colors duration-200"
+            style={{
+              borderColor: "var(--sp-border)",
+              background: "var(--sp-surface)",
+              boxShadow: "var(--sp-shadow-sm)",
             }}
-            whileHover={{
-              y: -6,
-              scale: 1.02,
-            }}
-            className="
-              group
-              relative
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-gradient-to-br
-              from-[#1B2040]
-              to-[#232B4A]
-              p-6
-              shadow-xl
-              transition-all
-              duration-300
-              hover:border-cyan-400/60
-            "
           >
-            {/* Glow */}
-            <div
-              className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition"
-              style={{
-                background: node.color,
-              }}
-            />
-
-            <div className="relative">
-
-              {/* Top */}
-              <div className="flex items-center gap-4">
-
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-lg"
-                  style={{
-                    background: node.color,
-                  }}
-                >
-                  {node.icon}
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    {node.key}
-                  </h3>
-
-                  <div
-                    className="w-12 h-1 rounded-full mt-2"
-                    style={{
-                      background: node.color,
-                    }}
-                  />
-                </div>
-
+            <div className="flex items-center gap-3.5">
+              <div
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] text-lg"
+                style={{ background: node.color }}
+              >
+                {node.icon}
               </div>
-
-              {/* Content */}
-              <p className="mt-5 text-white/75 leading-7 text-sm">
-                {node.text || "AI generated summary."}
-              </p>
-
+              <div>
+                <h3 className="text-[14px] font-semibold text-[var(--sp-text)]">{node.key}</h3>
+                <div className="mt-1.5 h-1 w-9 rounded-full" style={{ background: node.color }} />
+              </div>
             </div>
+
+            <p className="mt-4 text-[13px] leading-6 text-[var(--sp-text-muted)]">
+              {node.text || "AI generated summary."}
+            </p>
           </motion.div>
         ))}
-
       </div>
     </section>
   );

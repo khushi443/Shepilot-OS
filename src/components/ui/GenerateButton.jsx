@@ -3,19 +3,18 @@ export default function GenerateButton({
   loading,
   idleLabel,
   loadingLabel,
-  gradientClass,
-  textClass = "font-bold text-white",
 }) {
   return (
     <button
       onClick={onClick}
       disabled={loading}
-      className={`mt-6 sm:mt-8 w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r ${gradientClass} ${textClass} hover:scale-105 transition disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100`}
+      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[12px] px-6 py-3.5 text-[14px] font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:mt-8 sm:w-auto"
+      style={{ background: "var(--sp-primary)" }}
     >
       {loading ? (
         <span className="inline-flex items-center gap-2">
           <svg
-            className="animate-spin h-4 w-4"
+            className="h-4 w-4 animate-spin"
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Sparkles } from "lucide-react";
+import DashboardShell from "../app/DashboardShell";
+import SectionHeader from "../app/SectionHeader";
 import { useAIGenerator } from "../../hooks/useAIGenerator";
+import { getPrefillInput } from "../../utils/businessContext";
 import ResultCard from "./ResultCard";
 import ErrorCard from "./ErrorCard";
 import GenerateButton from "./GenerateButton";
@@ -15,8 +18,6 @@ export default function AIToolPage({
   loadingLabel,
 
   historyType,
-
-  // NEW
   toolType = "business",
 
   resultTitle,
@@ -24,17 +25,12 @@ export default function AIToolPage({
 
   buildPrompt,
 
-  heroGradientClass,
-  buttonGradientClass,
-  buttonTextClass,
-  accentTextClass,
-
   minLength = 10,
   maxLength = 4000,
   rows = 8,
-}) {
-  const navigate = useNavigate();
 
+  suggestedQuestions,
+}) {
   const {
     input,
     setInput,
@@ -49,77 +45,28 @@ export default function AIToolPage({
     minInputLength: minLength,
   });
 
+  // Only meaningful for downstream tools — the Business Idea page is where
+  // this context originates, so it never shows its own indicator.
+  const isUsingPriorContext = historyType !== "Business Idea" && Boolean(getPrefillInput(historyType));
+
   return (
-    <div className="min-h-screen bg-[#15192E] text-white">
+    <DashboardShell title={eyebrow} subtitle={description}>
+      <div className="mx-auto max-w-4xl">
+        <SectionHeader eyebrow={eyebrow} title={`${emoji} ${title}`} description={description} />
 
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-
-        {/* Back Button */}
-
-        <button
-          onClick={() => navigate("/dashboard")}
-          className="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-3 transition-all duration-300 hover:bg-white/20"
-        >
-          ← Back to Dashboard
-        </button>
-
-        {/* Hero */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`
-            relative
-            overflow-hidden
-            rounded-[32px]
-            border
-            border-white/10
-            bg-gradient-to-r
-            ${heroGradientClass}
-            p-8
-            shadow-2xl
-            md:p-10
-          `}
-        >
-
-          {/* Background Glow */}
-
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-
-          <div className="relative">
-
-            <p
-              className={`text-xs uppercase tracking-[4px] sm:text-sm ${accentTextClass}`}
-            >
-              {eyebrow}
-            </p>
-
-            <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">
-              {emoji} {title}
-            </h1>
-
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-white/70">
-              {description}
-            </p>
-
+        {isUsingPriorContext && (
+          <div
+            className="mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium"
+            style={{ background: "var(--sp-accent-soft)", color: "var(--sp-accent)" }}
+          >
+            <Sparkles size={13} />
+            Using your startup idea from earlier
           </div>
-
-        </motion.div>
+        )}
 
         {/* Input */}
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mt-10"
-        >
-
-          <label
-            htmlFor="ai-tool-input"
-            className="sr-only"
-          >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="mt-6">
+          <label htmlFor="ai-tool-input" className="sr-only">
             {placeholder}
           </label>
 
@@ -130,71 +77,51 @@ export default function AIToolPage({
             maxLength={maxLength}
             onChange={(e) => setInput(e.target.value)}
             placeholder={placeholder}
-            className="
-              w-full
-              resize-none
-              rounded-3xl
-              border
-              border-white/10
-              bg-white/5
-              p-6
-              text-white
-              backdrop-blur-xl
-              outline-none
-              transition-all
-              duration-300
-              placeholder:text-white/40
-              focus:border-cyan-400
-              focus:ring-2
-              focus:ring-cyan-500/20
-            "
+            className="w-full resize-none rounded-[14px] border p-4.5 text-[13.5px] leading-6 outline-none transition-colors focus:border-[var(--sp-primary)]"
+            style={{
+              borderColor: "var(--sp-border)",
+              background: "var(--sp-surface)",
+              color: "var(--sp-text)",
+            }}
           />
 
-          <div className="mt-3 flex justify-between text-xs text-white/40">
-
-            <span>
-              Describe your startup idea in as much detail as possible.
-            </span>
-
+          <div className="mt-2.5 flex justify-between text-[11.5px] text-[var(--sp-text-faint)]">
+            <span>Describe your startup idea in as much detail as possible.</span>
             <span>
               {input.length}/{maxLength}
             </span>
-
           </div>
-
         </motion.div>
 
-        {/* Generate */}
-
-        <div className="mt-8">
-
-          <GenerateButton
-            onClick={generate}
-            loading={loading}
-            idleLabel={idleLabel}
-            loadingLabel={loadingLabel}
-            gradientClass={buttonGradientClass}
-            textClass={buttonTextClass}
-          />
-
-        </div>
-                {/* Error */}
-
-        {error && !loading && (
-          <div className="mt-8">
-            <ErrorCard message={error} />
+        {/* Suggested questions */}
+        {suggestedQuestions?.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {suggestedQuestions.map((q) => (
+              <button
+                key={q}
+                onClick={() => setInput(q)}
+                className="rounded-full border px-3.5 py-1.5 text-left text-[12px] font-medium transition-colors hover:bg-[var(--sp-surface-muted)]"
+                style={{ borderColor: "var(--sp-border)", color: "var(--sp-text-muted)" }}
+              >
+                {q}
+              </button>
+            ))}
           </div>
         )}
 
-        {/* Result */}
+        {/* Generate */}
+        <GenerateButton onClick={generate} loading={loading} idleLabel={idleLabel} loadingLabel={loadingLabel} />
 
+        {/* Error */}
+        {error && !loading && <ErrorCard message={error} onRetry={generate} />}
+
+        {/* Result */}
         {(result || loading) && (
           <motion.div
             ref={resultRef}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-10"
+            transition={{ duration: 0.35 }}
           >
             <ResultCard
               title={resultTitle}
@@ -202,15 +129,11 @@ export default function AIToolPage({
               content={result}
               loading={loading}
               downloadName={title}
-
-              // NEW
               toolType={toolType}
             />
           </motion.div>
         )}
-
       </div>
-
-    </div>
+    </DashboardShell>
   );
 }

@@ -7,100 +7,55 @@ export default function StartupBlueprint({ content }) {
   if (!nodes.length) return null;
 
   return (
-    <section className="mt-14">
+    <section className="mt-10">
       {/* Header */}
-      <div className="flex items-center gap-4 mb-10">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 flex items-center justify-center text-3xl shadow-lg">
+      <div className="mb-6 flex items-center gap-3.5">
+        <div
+          className="flex h-11 w-11 items-center justify-center rounded-[12px] text-xl"
+          style={{ background: "var(--sp-primary-soft)" }}
+        >
           🗺
         </div>
-
         <div>
-          <h2 className="text-3xl font-black text-white">
-            Startup Blueprint
-          </h2>
-
-          <p className="text-white/60 mt-1">
+          <h2 className="text-[17px] font-bold text-[var(--sp-text)]">Startup Blueprint</h2>
+          <p className="text-[12.5px] text-[var(--sp-text-muted)]">
             AI-generated startup journey at a glance.
           </p>
         </div>
       </div>
 
       {/* Blueprint Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {nodes.map((node, index) => (
           <motion.div
             key={node.key}
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.45,
-              delay: index * 0.08,
+            transition={{ duration: 0.35, delay: index * 0.05 }}
+            className="rounded-[16px] border p-5 transition-colors duration-200"
+            style={{
+              borderColor: "var(--sp-border)",
+              background: "var(--sp-surface)",
+              boxShadow: "var(--sp-shadow-sm)",
             }}
-            whileHover={{
-              y: -6,
-              scale: 1.02,
-            }}
-            className="
-              group
-              relative
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-gradient-to-br
-              from-[#1B2040]
-              to-[#232B4A]
-              p-6
-              shadow-xl
-              transition-all
-              duration-300
-              hover:border-cyan-400/60
-            "
           >
-            {/* Glow */}
-            <div
-              className="absolute top-0 right-0 w-32 h-32 blur-3xl opacity-20 group-hover:opacity-40 transition"
-              style={{ background: node.color }}
-            />
-
-            <div className="relative flex items-start gap-5">
-
-              {/* Icon */}
+            <div className="flex items-start gap-4">
               <div
-                className="w-16 h-16 rounded-2xl flex-shrink-0 flex items-center justify-center text-3xl shadow-lg"
-                style={{
-                  background: node.color,
-                }}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[11px] text-xl"
+                style={{ background: node.color }}
               >
                 {node.icon}
               </div>
 
-              {/* Content */}
-              <div className="flex-1">
-
-                <h3 className="text-xl font-bold text-white">
-                  {node.key}
-                </h3>
-
-                <div
-                  className="w-12 h-1 rounded-full mt-2 mb-4"
-                  style={{
-                    background: node.color,
-                  }}
-                />
-
-                <p className="text-white/75 text-sm leading-7">
-                  {node.text}
-                </p>
-
+              <div className="min-w-0 flex-1">
+                <h3 className="text-[14.5px] font-semibold text-[var(--sp-text)]">{node.key}</h3>
+                <div className="mb-3 mt-2 h-1 w-10 rounded-full" style={{ background: node.color }} />
+                <p className="text-[13px] leading-6 text-[var(--sp-text-muted)]">{node.text}</p>
               </div>
-
             </div>
           </motion.div>
         ))}
-
       </div>
     </section>
   );

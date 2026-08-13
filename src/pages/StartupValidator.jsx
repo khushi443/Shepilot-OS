@@ -62,10 +62,6 @@ export default function StartupValidator() {
       resultTitle="Startup Validation Report"
       resultEmoji="📊"
       buildPrompt={buildPrompt}
-      heroGradientClass="from-[#FF6B6B]/20 via-[#1B2040] to-[#FFD93D]/20"
-      buttonGradientClass="from-[#FF6B6B] to-[#FFD93D]"
-      buttonTextClass="font-bold text-black"
-      accentTextClass="text-[#FFD93D]"
       rows={7}
     />
   );

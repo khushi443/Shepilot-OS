@@ -28,148 +28,122 @@ const extractScore = (content = "") => {
 
 export default function ValidationScore({ content }) {
   const score = extractScore(content);
-
   const progress = `${score}%`;
 
-  let color = "from-red-500 to-red-400";
+  let barColor = "var(--sp-danger)";
   let badge = "Needs Improvement";
-  let badgeColor = "bg-red-500/20 text-red-300";
+  let badgeBg = "var(--sp-danger-soft)";
+  let badgeColor = "var(--sp-danger)";
 
   if (score >= 90) {
-    color = "from-emerald-500 to-green-400";
+    barColor = "var(--sp-success)";
     badge = "Excellent Startup";
-    badgeColor = "bg-emerald-500/20 text-emerald-300";
+    badgeBg = "var(--sp-success-soft)";
+    badgeColor = "var(--sp-success)";
   } else if (score >= 75) {
-    color = "from-cyan-500 to-blue-500";
+    barColor = "var(--sp-primary)";
     badge = "Strong Potential";
-    badgeColor = "bg-cyan-500/20 text-cyan-300";
+    badgeBg = "var(--sp-primary-soft)";
+    badgeColor = "var(--sp-primary-dark)";
   } else if (score >= 60) {
-    color = "from-yellow-500 to-orange-400";
+    barColor = "var(--sp-warning)";
     badge = "Average";
-    badgeColor = "bg-yellow-500/20 text-yellow-300";
+    badgeBg = "var(--sp-warning-soft)";
+    badgeColor = "var(--sp-warning)";
   }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.15 }}
-      className="mt-8 rounded-3xl border border-white/10 bg-gradient-to-br from-[#1B2040] to-[#232B4A] p-8 shadow-xl"
+      transition={{ delay: 0.1 }}
+      className="mt-10 rounded-[16px] border p-6 sm:p-8"
+      style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface)", boxShadow: "var(--sp-shadow-sm)" }}
     >
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-
-          <p className="text-sm uppercase tracking-[3px] text-cyan-300">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.09em] text-[var(--sp-primary)]">
             AI Validation
           </p>
-
-          <h3 className="mt-2 text-3xl font-black text-white">
-            Startup Validation Score
-          </h3>
-
-          <p className="mt-2 text-white/60">
+          <h3 className="mt-1.5 text-[19px] font-bold text-[var(--sp-text)]">Startup Validation Score</h3>
+          <p className="mt-1 text-[13px] text-[var(--sp-text-muted)]">
             Overall feasibility of your startup idea.
           </p>
-
         </div>
 
         <div
-          className={`rounded-full px-5 py-2 text-sm font-semibold ${badgeColor}`}
+          className="shrink-0 self-start rounded-full px-4 py-1.5 text-[12.5px] font-semibold sm:self-auto"
+          style={{ background: badgeBg, color: badgeColor }}
         >
           {badge}
         </div>
-
       </div>
 
-      <div className="mt-10"></div>
-            <div className="flex flex-col items-center justify-center">
-
-        {/* Score */}
-
+      <div className="mt-8 flex flex-col items-center justify-center">
         <motion.h1
-          initial={{ scale: 0.8 }}
+          initial={{ scale: 0.85 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="text-7xl font-black text-white"
+          transition={{ duration: 0.35 }}
+          className="text-[52px] font-black leading-none text-[var(--sp-text)]"
         >
           {score}
-          <span className="text-4xl text-cyan-300">/100</span>
+          <span className="text-[24px] text-[var(--sp-primary)]">/100</span>
         </motion.h1>
+        <p className="mt-2 text-[12.5px] text-[var(--sp-text-muted)]">Overall AI Evaluation</p>
 
-        <p className="mt-2 text-white/60">
-          Overall AI Evaluation
-        </p>
-
-        {/* Progress */}
-
-        <div className="mt-8 w-full">
-
-          <div className="mb-2 flex justify-between text-sm text-white/60">
-
+        <div className="mt-6 w-full">
+          <div className="mb-2 flex justify-between text-[12px] text-[var(--sp-text-muted)]">
             <span>Validation Progress</span>
-
-            <span>{score}%</span>
-
+            <span className="font-semibold text-[var(--sp-text)]">{score}%</span>
           </div>
-
-          <div className="h-4 overflow-hidden rounded-full bg-white/10">
-
+          <div className="h-2.5 w-full overflow-hidden rounded-full" style={{ background: "var(--sp-border)" }}>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: progress }}
-              transition={{ duration: 1 }}
-              className={`h-full rounded-full bg-gradient-to-r ${color}`}
+              transition={{ duration: 0.8 }}
+              className="h-full rounded-full"
+              style={{ background: barColor }}
             />
-
           </div>
-
         </div>
-
       </div>
 
       {/* Bottom Stats */}
-
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
-
-          <h4 className="text-sm uppercase tracking-wide text-white/50">
+      <div className="mt-8 grid gap-3 sm:grid-cols-3">
+        <div
+          className="rounded-[12px] border p-4 text-center"
+          style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface-muted)" }}
+        >
+          <h4 className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[var(--sp-text-faint)]">
             AI Confidence
           </h4>
-
-          <p className="mt-2 text-2xl font-bold text-cyan-300">
-            High
-          </p>
-
+          <p className="mt-1.5 text-[17px] font-bold text-[var(--sp-primary)]">High</p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
-
-          <h4 className="text-sm uppercase tracking-wide text-white/50">
+        <div
+          className="rounded-[12px] border p-4 text-center"
+          style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface-muted)" }}
+        >
+          <h4 className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[var(--sp-text-faint)]">
             Feasibility
           </h4>
-
-          <p className="mt-2 text-2xl font-bold text-green-300">
+          <p className="mt-1.5 text-[17px] font-bold text-[var(--sp-success)]">
             {score >= 75 ? "Strong" : "Moderate"}
           </p>
-
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
-
-          <h4 className="text-sm uppercase tracking-wide text-white/50">
+        <div
+          className="rounded-[12px] border p-4 text-center"
+          style={{ borderColor: "var(--sp-border)", background: "var(--sp-surface-muted)" }}
+        >
+          <h4 className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[var(--sp-text-faint)]">
             Recommendation
           </h4>
-
-          <p className="mt-2 text-2xl font-bold text-purple-300">
+          <p className="mt-1.5 text-[17px] font-bold text-[var(--sp-accent)]">
             {score >= 75 ? "Build It 🚀" : "Improve First"}
           </p>
-
         </div>
-
       </div>
-
     </motion.div>
   );
 }
