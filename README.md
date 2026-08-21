@@ -1,510 +1,494 @@
+<div align="center">
+
 🚀 ShePilot OS
 
 The AI Operating System for First-Time Women Entrepreneurs
 
+Turn a business idea into a validated, planned, and actionable startup journey with AI-powered tools for ideation, validation, finance, marketing, pitching, and growth.
+
+<p>
+
+<a href="https://shepilot-os.vercel.app/" target="_blank">
+<img src="https://img.shields.io/badge/🚀 Live Demo-Visit Website-success?style=for-the-badge">
+</a>
+
+<a href="https://github.com/khushi443/Shepilot-OS">
+<img src="https://img.shields.io/badge/💻 GitHub-Repository-black?style=for-the-badge&logo=github">
+</a>
+
+<a href="https://github.com/khushi443/Shepilot-OS/stargazers">
+<img src="https://img.shields.io/github/stars/khushi443/Shepilot-OS?style=for-the-badge">
+</a>
+
+<a href="https://github.com/khushi443/Shepilot-OS/network/members">
+<img src="https://img.shields.io/github/forks/khushi443/Shepilot-OS?style=for-the-badge">
+</a>
+
+<a href="https://github.com/khushi443/Shepilot-OS/blob/main/LICENSE">
+<img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge">
+</a>
+
+</p>
+
+</div>
+
 📖 Overview
 
 ShePilot OS is an AI-powered startup workspace designed to help first-time women entrepreneurs move from a business idea to an actionable launch plan.
-Starting a business often requires founders to use separate tools for:
 
-Idea generation
+The platform brings startup ideation, market validation, business modelling, financial planning, marketing, pitch preparation, roadmap planning, and AI guidance into one connected workspace.
 
-Market validation
+ShePilot OS is designed around the idea of Startup Context Continuity, where information created during one stage can be reused by other stages of the startup journey.
 
-Business modelling
+The platform is built to help founders move from:
 
-Financial planning
-
-Marketing
-
-Pitch preparation
-
-Roadmap planning
-
-AI guidance
-ShePilot OS brings these workflows together into one connected workspace.
-The platform is designed around a simple idea:
-
-Don't just generate an idea. Help the founder understand what to do next.
+Idea → Validate → Plan → Finance → Market → Pitch → Roadmap → Launch
 
 🎯 Problem
 
-First-time founders commonly face several challenges:
+First-time entrepreneurs often have a business idea but struggle with the steps that come after the idea.
 
-They have an idea but do not know how to validate it.
+Common challenges include:
 
-They struggle to identify the right customer.
+Understanding whether the idea is worth pursuing
 
-Business planning feels complicated.
+Identifying the target customer
 
-Financial assumptions are often unclear.
+Defining the actual customer problem
 
-Marketing decisions can feel overwhelming.
+Structuring a sustainable business model
 
-Pitch preparation requires information from multiple places.
+Planning startup costs and pricing
 
-AI tools usually work as separate conversations.
+Creating a practical marketing strategy
 
-Important startup information becomes scattered.
+Preparing a professional startup pitch
 
-Founders often do not know their next practical step.
-The problem is therefore not only a lack of information.
-It is the lack of a connected workflow that turns information into action.
+Building an execution roadmap
+
+Keeping startup information organized
+
+Knowing what to do next
+
+The challenge is not only access to information.
+
+The bigger challenge is turning information into connected and actionable startup decisions.
 
 💡 Solution
 
-ShePilot OS provides a connected AI workspace for the early startup journey.
-The platform helps founders:
+ShePilot OS provides a connected AI workspace where founders can:
 
-Generate a business idea.
+Generate and structure business ideas
 
-Structure the problem and solution.
+Explore market assumptions
 
-Validate the target market.
+Validate customer and business problems
 
-Build a business model.
+Build a business model
 
-Plan startup finances.
+Plan startup finances
 
-Create a marketing direction.
+Create a marketing strategy
 
-Prepare pitch content.
+Generate pitch content
 
-Build an execution roadmap.
+Build an execution roadmap
 
-Ask an AI Mentor for guidance.
+Ask an AI Mentor for guidance
 
-Review previous startup activities.
+Review previous startup activities
 
-Example
+The goal is to reduce the friction between:
 
-A founder creates:
+"I have an idea."
 
-Business:
-Handmade Jewellery Brand
-Target Audience:
-College Students and Young Professionals
-Value Proposition:
-Affordable, customizable jewellery
+and:
 
-Later, the Marketing Planner can use this startup context when creating a marketing direction.
+"I know what I need to do next."
 
 ✨ Features
 
 🔐 Authentication
 
-Firebase Authentication provides the user authentication layer.
+User Registration
 
-Includes
+User Login
 
-User registration
+Google Authentication
 
-User login
+Firebase Authentication
 
-Google authentication
+Protected Routes
 
-Authentication state management
+Persistent Authentication State
 
-Protected application routes
-
-User-specific workspace
+User-specific Application Data
 
 Logout
 
-Authentication error handling
+Authentication Error Handling
 
-Loading states
+Loading States
 
-Form validation
+Form Validation
 
 💡 AI Business Idea Generator
 
-The Business Idea Generator helps users transform an initial thought or problem into a structured startup concept.
+Generate Business Ideas
 
-Possible Inputs
+Structure Initial Business Concepts
 
-Problem
+Define the Problem
 
-Interest
+Define Target Audience
 
-Skill
+Create Value Proposition
 
-Target audience
+Identify Key Features
 
-Business category
+Suggest Revenue Models
 
-Market opportunity
+Identify Competitive Advantage
 
-Generated Structure
+Define MVP Direction
 
-Business concept
+Suggest Launch Direction
 
-Problem statement
+Generate AI Recommendations
 
-Target audience
-
-Value proposition
-
-Key features
-
-Revenue model
-
-Competitive advantage
-
-MVP direction
-
-Launch direction
-
-AI recommendations
-
-Goal
-
-The purpose is to give founders a structured starting point rather than only a list of random ideas.
+Save Startup Context
 
 🔎 Market Validation
 
-The Market Validation module helps founders think through whether their business idea has a meaningful market opportunity.
+Target Market Identification
 
-Includes
+Customer Segmentation
 
-Target market
+Customer Pain Points
 
-Customer segments
+Market Opportunity Analysis
 
-Customer pain points
+Competitor Considerations
 
-Market opportunity
+Demand Signals
 
-Competitor considerations
+Business Risk Identification
 
-Demand signals
-
-Business risks
-
-Validation actions
-
-Recommendations
-
-Validation Flow
-
-Business Idea
-      ↓
-Target Customer
-      ↓
-Customer Problem
-      ↓
-Market Assumptions
-      ↓
 Validation Actions
-      ↓
-Learning
-      ↓
-Decision
+
+Validation Recommendations
+
+Startup Context Reuse
+
+Structured Validation Output
 
 📋 Business Canvas
 
-The Business Canvas converts an idea into a structured business model.
-
-Business Model Areas
-
 Problem
 
 Solution
 
-Customer segments
+Customer Segments
 
-Value proposition
+Value Proposition
 
 Channels
 
-Customer relationships
+Customer Relationships
 
-Revenue streams
+Revenue Streams
 
-Key resources
+Key Resources
 
-Key activities
+Key Activities
 
-Key partners
+Key Partners
 
-Cost structure
+Cost Structure
 
-Key metrics
+Key Metrics
 
-Competitive advantage
-This gives founders a single view of how the business is expected to work.
+Competitive Advantage
+
+Structured Business Model
 
 💰 Finance Planner
 
-The Finance Planner helps founders think through the financial foundation of a startup.
+Startup Cost Planning
 
-Includes
+Monthly Expense Planning
 
-Startup cost planning
+Pricing Considerations
 
-Monthly expense planning
-
-Pricing considerations
-
-Revenue assumptions
-
-Break-even guidance
-
-Profitability considerations
-
-Financial risks
-
-AI-generated recommendations
-
-Financial Thinking Flow
-
-Startup Costs
-      ↓
-Monthly Expenses
-      ↓
-Pricing
-      ↓
 Revenue Assumptions
-      ↓
-Break-even Thinking
-      ↓
-Financial Decision
 
-AI-generated financial information should be treated as planning guidance and independently verified.
+Break-even Guidance
+
+Profitability Considerations
+
+Financial Risk Identification
+
+AI-generated Financial Recommendations
+
+Financial Planning Structure
+
+Startup Context Integration
 
 📣 Marketing Planner
 
-The Marketing Planner creates a structured marketing direction based on startup context.
+Target Audience
 
-Includes
+Marketing Channels
 
-Target audience
+Customer Acquisition
 
-Marketing channels
+Content Strategy
 
-Customer acquisition
+Growth Strategy
 
-Content strategy
+Campaign Planning
 
-Growth strategy
+Marketing Recommendations
 
-Campaign ideas
+Customer Messaging
 
-Marketing recommendations
+Channel Selection
 
-Marketing Framework
-
-Who?
- ↓
-Where are they?
- ↓
-What problem do they have?
- ↓
-What message should we communicate?
- ↓
-Which channel should we use?
- ↓
-What content should we create?
- ↓
-How do we measure progress?
+Startup Context Integration
 
 🎤 Pitch Deck Generator
 
-The Pitch Deck Generator helps founders prepare structured pitch content.
-
-Useful For
-
-Startup competitions
-
-College presentations
-
-Incubators
-
-Demo days
-
-Founder presentations
-
-Early-stage fundraising preparation
-
-Covers
-
-Problem
+Problem Statement
 
 Solution
 
-Target market
+Target Market
 
 Product
 
-Business model
+Business Model
 
-Competitive advantage
+Competitive Advantage
 
-Go-to-market strategy
+Go-to-Market Strategy
 
-Financial direction
+Financial Direction
 
-Vision
+Startup Vision
 
-Funding / ask
+Funding / Ask
+
+Structured Pitch Content
+
+Competition-ready Pitch Direction
 
 🗺️ Startup Roadmap
 
-The Startup Roadmap converts startup direction into execution-oriented milestones.
+Startup Milestones
 
-Includes
+Priority Planning
 
-Priorities
+Short-term Actions
 
-Milestones
+Medium-term Actions
 
-Short-term actions
+Long-term Goals
 
-Medium-term actions
+Expected Outcomes
 
-Long-term goals
+Launch Planning
 
-Expected outcomes
+Execution Priorities
 
-Launch planning
-The roadmap is designed to answer:
+Next-step Guidance
 
-What should I do next?
+Startup Journey Tracking
 
 🤖 AI Mentor
 
-The AI Mentor provides startup-oriented guidance using the user's available startup context.
+Context-aware Startup Guidance
 
-Example Questions
+Business Strategy Questions
+
+Customer Acquisition Guidance
+
+Pricing Guidance
+
+Validation Guidance
+
+MVP Planning Guidance
+
+Business Model Feedback
+
+Priority Recommendations
+
+Next-step Suggestions
+
+Startup Context Integration
+
+Example questions:
 
 How can I get my first 10 customers?
+
 How should I price my product?
+
 What should I validate before launching?
+
 What should I focus on this month?
+
 How can I improve my business model?
+
 What should I prioritize before building an MVP?
 
-Mentor Workflow
+🧠 Startup Context Continuity
 
-Founder Question
+ShePilot OS connects information across the startup workflow.
+
+Business Idea
       ↓
-Startup Context
+Market Validation
       ↓
-AI Processing
+Business Canvas
       ↓
-Structured Guidance
+Finance Planner
       ↓
-Next Action
+Marketing Planner
+      ↓
+Pitch Deck
+      ↓
+Startup Roadmap
+      ↓
+AI Mentor
+
+This reduces repetitive data entry and helps later tools work with information created earlier in the journey.
 
 📊 Founder Dashboard
 
-The dashboard acts as the central workspace for the founder.
+Startup Progress
 
-Includes
+Current Journey Stage
 
-Startup progress
+Quick Actions
 
-Current journey stage
+AI Tool Access
 
-Quick actions
+Recent Activity
 
-AI tool access
+Startup Readiness
 
-Recent activity
+Journey Progress
 
-Startup readiness
+Next-step Guidance
 
-Journey progress
+Connected Startup Workspace
 
-Next-step guidance
-The dashboard is intended to make the startup journey visible at a glance.
+Central Founder Control Center
 
 🕘 Activity History
 
-Activity History helps users revisit important startup activities.
+Tool Used
 
-Tracks
-
-Tool used
-
-Activity type
+Activity Type
 
 Timestamp
 
-Activity summary
+Activity Summary
 
-User-specific history
-This supports continuity across the founder journey.
+User-specific History
+
+Previous Startup Activities
+
+Activity Review
+
+Startup Journey Continuity
 
 ⚙️ Settings
 
-The Settings area provides account and workspace management.
+Profile Information
 
-Includes
+Display Name Management
 
-Profile information
+Account Information
 
-Display name
+Password Reset Support
 
-Account information
+Security Information
 
-Password reset support
+Workspace Preferences
 
-Security information
+Notification Preferences
 
-Workspace preferences
-
-Notification preferences
+Account Management
 
 🆘 Help & Support
 
-The platform includes a guidance area for users who need help.
+Getting Started Guide
 
-Includes
+Startup Journey Guidance
 
-Getting started guidance
+AI Workspace Guide
 
-Startup journey guidance
+Context Continuity Guide
 
-AI workspace guide
+AI Mentor Guidance
 
-Context continuity guide
+Activity History Guidance
 
-AI Mentor guidance
+Support Request Form
 
-Activity History guidance
+Platform Usage Guidance
 
-Support request form
+🎨 Modern UI/UX
 
-Design Features
+Modern SaaS Dashboard
 
-Modern dashboard
+Professional Interface
 
-Clean light interface
+Responsive Sidebar Navigation
 
-Responsive sidebar
+Reusable UI Components
 
-Reusable components
+Interactive Cards
 
-Interactive cards
+Framer Motion Animations
 
-Framer Motion animations
+Loading States
 
-Loading states
+Empty States
 
-Empty states
+Error States
 
-Error states
+Toast Notifications
 
-Toast notifications
+Responsive Forms
 
-Responsive forms
+Accessible Controls
 
-Consistent spacing
+Consistent Design System
 
-Accessible controls
+📱 Responsive Design
 
-🛠️ Tech Stack
+Mobile Responsive
+
+Tablet Friendly
+
+Laptop Friendly
+
+Desktop Friendly
+
+Responsive Navigation
+
+Responsive Forms
+
+Responsive Cards
+
+Adaptive Layouts
+
+Responsive Dashboard
+
+Mobile-friendly Workspace
+
+🛠 Tech Stack
 
 Category
 
@@ -560,13 +544,13 @@ ESLint
 
 Version Control
 
-Git, GitHub
+Git & GitHub
 
 Deployment
 
 Vercel
 
-🏗️ Architecture
+🏗 Architecture
 
                          ShePilot OS
                               │
@@ -596,7 +580,7 @@ Vercel
 
 🤖 AI Architecture
 
-The AI layer is designed around a server-side API endpoint.
+The AI integration uses a server-side API route.
 
 React Frontend
       ↓
@@ -616,69 +600,65 @@ AI Response
       ↓
 ShePilot UI
 
-Security Boundary
-
-Browser
-   ↓
-/api/generate
-   ↓
-Server-side function
-   ↓
-OPENROUTER_API_KEY
-   ↓
-OpenRouter
-
-The OpenRouter secret should not be exposed in client-side code.
+The architecture keeps the OpenRouter secret outside the client-side application.
 
 🔒 Security
 
-Security Practices
+The application uses Firebase Authentication and user-specific Firestore data.
+
+Security practices include:
 
 Firebase Authentication
 
-Protected routes
+Protected Application Routes
 
-User-specific Firestore data
+User-specific Firestore Data
 
-Server-side AI API key
+User Ownership Controls
 
-Environment variables for secrets
+Server-side AI API Key
 
-API error handling
+Environment Variables for Secrets
 
-Authentication state validation
+API Error Handling
 
-User ownership controls
+Authentication State Validation
 
-Firestore security rules
+Firestore Security Rules
 
-No client-side OpenRouter secret
+No client-side OpenRouter API Key
 
-Environment Secret
+Protected Serverless API Endpoint
+
+Environment variable:
 
 OPENROUTER_API_KEY=your_api_key
 
-⚠️ Never commit .env files or expose private API keys in the frontend bundle.
+Never commit .env files or expose private API keys in the frontend bundle.
 
-📂 Project Structure
+📂 Folder Structure
 
-Shepilot-OS/
+Shepilot-OS
 │
-├── api/
+├── api
 │   └── generate.js
 │
-├── public/
+├── public
 │
-├── src/
-│   ├── components/
-│   │   ├── app/
-│   │   ├── ui/
-│   │   └── validator/
+├── src
 │   │
-│   ├── context/
-│   ├── firebase/
-│   ├── hooks/
-│   ├── pages/
+│   ├── components
+│   │   ├── app
+│   │   ├── ui
+│   │   └── validator
+│   │
+│   ├── context
+│   │
+│   ├── firebase
+│   │
+│   ├── hooks
+│   │
+│   ├── pages
 │   │   ├── Dashboard.jsx
 │   │   ├── BusinessIdea.jsx
 │   │   ├── StartupValidator.jsx
@@ -692,8 +672,8 @@ Shepilot-OS/
 │   │   ├── Help.jsx
 │   │   └── Settings.jsx
 │   │
-│   ├── services/
-│   ├── utils/
+│   ├── services
+│   ├── utils
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -710,19 +690,17 @@ Shepilot-OS/
 
 Prerequisites
 
-Before running the project, install:
-
 Node.js 18+
 
 npm
 
 Git
 
-Firebase project
+Firebase Project
 
-OpenRouter API key
+OpenRouter API Key
 
-Vercel account for deployment
+Vercel Account
 
 1. Clone Repository
 
@@ -732,7 +710,7 @@ git clone https://github.com/khushi443/Shepilot-OS.git
 
 cd Shepilot-OS
 
-If the project uses a frontend subdirectory:
+If the frontend is inside a separate directory:
 
 cd frontend
 
@@ -750,23 +728,30 @@ VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
 VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
 VITE_FIREBASE_APP_ID=your_firebase_app_id
+
 OPENROUTER_API_KEY=your_openrouter_api_key
 
-Keep the .env file private.
-
-5. Start Development Server
+5. Run Development Server
 
 npm run dev
 
-The local application is normally available at:
+Local application:
 
 http://localhost:5173
+
+6. Run Production Build
+
+npm run build
+
+7. Preview Production Build
+
+npm run preview
 
 📜 Available Scripts
 
 Command
 
-Purpose
+Description
 
 npm run dev
 
@@ -794,23 +779,29 @@ Run project logic checks
 
 🚀 Deployment
 
-ShePilot OS is designed for deployment through Vercel.
+Application
 
-Deployment Flow
+Hosted using:
+
+Vercel
+
+Frontend
+
+React + Vite
+
+Authentication & Database
+
+Firebase Authentication + Firestore
+
+AI Layer
+
+OpenRouter API through Vercel Serverless Functions
+
+Source Code
 
 GitHub
-   ↓
-Vercel
-   ↓
-Production Build
-   ↓
-Serverless API
-   ↓
-Firebase + OpenRouter
-   ↓
-ShePilot OS
 
-🌐 Live Demo
+🌐 Live Application
 
 Primary Production URL
 
@@ -820,9 +811,13 @@ Additional Vercel Deployment
 
 https://shepilot-6atl7ie7n-khushi-s-projects4.vercel.app/
 
+Repository
+
+https://github.com/khushi443/Shepilot-OS
+
 🔑 Production Environment Variables
 
-Add the following environment variables to the Vercel project:
+Configure the following variables in the Vercel project:
 
 VITE_FIREBASE_API_KEY
 VITE_FIREBASE_AUTH_DOMAIN
@@ -832,25 +827,19 @@ VITE_FIREBASE_MESSAGING_SENDER_ID
 VITE_FIREBASE_APP_ID
 OPENROUTER_API_KEY
 
-Important
-
-OPENROUTER_API_KEY
-        ↓
-Server-side only
-        ↓
-/api/generate
+The OpenRouter API key should remain server-side.
 
 🧪 Testing Checklist
 
 Before production deployment, verify:
 
-User registration
+User Registration
 
-User login
+User Login
 
-Google authentication
+Google Authentication
 
-Protected routes
+Protected Routes
 
 Dashboard
 
@@ -864,7 +853,7 @@ Finance Planner
 
 Marketing Planner
 
-Pitch Deck Generator
+Pitch Deck
 
 Startup Roadmap
 
@@ -878,17 +867,17 @@ Settings
 
 Help & Support
 
-Responsive layout
+Responsive Layout
 
-Production build
+Production Build
 
 ESLint
 
-AI API security
+AI API Security
 
-Firestore security rules
+Firestore Security Rules
 
-Environment variables
+Environment Variables
 
 🎯 Product Workflow
 
@@ -928,161 +917,219 @@ Environment variables
 │ AI MENTOR   │
 └─────────────┘
 
-🌐 Deployment Architecture
+📊 Startup Journey
 
-                         GitHub
-                            │
-                            ▼
-                         Vercel
-                            │
-              ┌─────────────┴─────────────┐
-              ↓                           ↓
-       React Frontend             Serverless API
-              │                           │
-              ↓                           ↓
-       Firebase Services           OpenRouter API
-              │                           │
-              └─────────────┬─────────────┘
-                            ↓
-                       ShePilot OS
+Idea
+ ↓
+Problem Clarity
+ ↓
+Customer Understanding
+ ↓
+Market Validation
+ ↓
+Business Model
+ ↓
+Financial Planning
+ ↓
+Marketing Direction
+ ↓
+Pitch Preparation
+ ↓
+Execution Roadmap
+ ↓
+Launch Readiness
+
+🧩 Product Modules
+
+Module
+
+Purpose
+
+Business Idea
+
+Generate and structure startup concepts
+
+Market Validation
+
+Explore market assumptions and validation actions
+
+Business Canvas
+
+Build the business model
+
+Finance Planner
+
+Plan costs, pricing, revenue, and financial considerations
+
+Marketing Planner
+
+Create acquisition and growth strategies
+
+Pitch Deck
+
+Structure startup pitch content
+
+Roadmap
+
+Convert strategy into execution milestones
+
+AI Mentor
+
+Provide context-aware startup guidance
+
+Dashboard
+
+Track startup progress
+
+Activity History
+
+Review previous startup activities
+
+Settings
+
+Manage account and workspace
+
+Help
+
+Learn how to use the platform
+
+🗃️ User Data Model
+
+ShePilot OS uses Firebase Authentication and Firestore for user-specific application data.
+
+User
+ │
+ ├── Authentication
+ │
+ └── Startup Workspace
+       │
+       ├── Business Idea
+       ├── Validation
+       ├── Canvas
+       ├── Finance
+       ├── Marketing
+       ├── Pitch
+       ├── Roadmap
+       ├── AI Mentor
+       └── Activity History
+
+⚠️ AI Usage Considerations
+
+AI-generated startup information should be treated as a planning starting point rather than guaranteed business truth.
+
+Users should independently verify:
+
+Market demand
+
+Competitor information
+
+Pricing
+
+Financial assumptions
+
+Legal requirements
+
+Customer feedback
+
+Business feasibility
+
+ShePilot OS is designed to help founders think, structure, validate, and plan. It does not replace real-world market validation or professional advice.
 
 🔮 Future Improvements
 
-Potential future directions include:
+Real-time Market Research
 
-Real-time market research
+Automated Competitor Analysis
 
-Automated competitor analysis
+Advanced Financial Forecasting
 
-Advanced financial forecasting
+Investor Matching
 
-Investor matching
+Team Collaboration
 
-Team collaboration
+Startup Document Generation
 
-Startup document generation
+Email Notifications
 
-Email notifications
+Push Notifications
 
-Push notifications
+Advanced Founder Analytics
 
-Founder analytics
+Multi-language Support
 
-Multi-language support
+AI-powered Task Recommendations
 
-AI-powered task recommendations
+Founder Community
 
-Founder community
+Startup Performance Tracking
 
-Startup performance tracking
+Customer Interview Workspace
 
-Customer interview workspace
+MVP Planning
 
-MVP planning
+Funding Opportunity Discovery
 
-Funding opportunity discovery
+Startup Templates
 
-Startup templates
-
-Founder progress analytics
+Founder Progress Analytics
 
 🤝 Contributing
 
-Contributions and suggestions are welcome.
+Contributions are welcome!
 
-1. Fork the Repository
+1. Fork the repository
 
 git fork https://github.com/khushi443/Shepilot-OS
 
-2. Create a Branch
+2. Create a feature branch
 
 git checkout -b feature/NewFeature
 
-3. Make Changes
+3. Make your changes
 
-Implement your feature, fix, or improvement.
+Implement your feature, improvement, or bug fix.
 
-4. Commit Changes
+4. Commit your changes
 
 git add .
-git commit -m "Add new feature"
+git commit -m "Added new feature"
 
-5. Push Branch
+5. Push your branch
 
 git push origin feature/NewFeature
 
 6. Open a Pull Request
 
-Create a Pull Request with a clear description of the changes.
-
-1. Reduce Startup Friction
-
-Help founders move from:
-
-"I have an idea."
-to:
-"I know what I need to do next."
-
-2. Connect Startup Workflows
-
-Keep information connected across:
-
-Ideation
-   ↓
-Validation
-   ↓
-Planning
-   ↓
-Finance
-   ↓
-Marketing
-   ↓
-Pitch
-   ↓
-Roadmap
-   ↓
-Mentorship
-
-3. Make AI Actionable
-
-Use AI to generate structured startup outputs that support the next stage of execution instead of only providing generic conversation.
+Submit a Pull Request with a clear description of your changes.
 
 👩‍💻 Developer
 
 Khushi Singh
 
 Frontend Developer | React.js | AI Integration | Responsive Web Applications
-ShePilot OS was designed and developed as an AI-powered startup workspace for first-time women entrepreneurs.
-
-Profiles
-
-🌐 Portfolio: https://khushi443.github.io/khushi-portfolio/
-
-💼 LinkedIn: https://www.linkedin.com/in/khushiiisingh/
-
-💻 GitHub: https://github.com/khushi443
-
-🌐 Project Links
-
-Resource
-
-Link
-
-🚀 Live Demo
-
-https://shepilot-os.vercel.app/
-
-💻 GitHub Repository
-
-https://github.com/khushi443/Shepilot-OS
 
 🌐 Portfolio
 
 https://khushi443.github.io/khushi-portfolio/
 
+💼 LinkedIn
+
+https://www.linkedin.com/in/khushiiisingh/
+
+💻 GitHub
+
+https://github.com/khushi443
+
 ⭐ Support
+
+If you found this project useful or interesting, please consider giving it a ⭐ on GitHub.
+
+Feedback, suggestions, and contributions are welcome.
+
+<div align="center">
 
 🚀 Think • Validate • Plan • Launch • Grow
 
-Built with React, Firebase & AI
 Made with ❤️ by Khushi Singh
+
+</div>
