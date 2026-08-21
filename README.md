@@ -1,6 +1,7 @@
 <div align="center">
 
-🚀 ShePilot OS
+<h1>🚀 ShePilot OS</h1>
+<br>
 The AI Operating System for First-Time Women Entrepreneurs
 Turn a business idea into a validated, planned, and actionable startup journey with AI-powered tools for ideation, validation, business planning, finance, marketing, pitching, and growth.
 
