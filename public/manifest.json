@@ -1,0 +1,16 @@
+{
+  "name": "ShePilot OS",
+  "short_name": "ShePilot",
+  "description": "The AI Operating System for First-Time Women Entrepreneurs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#15192E",
+  "theme_color": "#15192E",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

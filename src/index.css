@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+/*
+ * ShePilot OS — App Shell design tokens.
+ * Scoped under .shepilot-app so the existing dark "tesla-inspired" marketing
+ * site (Home/Login/Signup/AI tool pages) is completely untouched. The new
+ * Sidebar + Topbar dashboard shell (Dashboard, Activity History) opts into
+ * this light, premium-SaaS palette by wrapping itself in this class.
+ */
+.shepilot-app {
+  --sp-bg: #F7F6FC;
+  --sp-surface: #FFFFFF;
+  --sp-surface-muted: #FBFAFE;
+  --sp-border: #E7E4F2;
+  --sp-border-strong: #DAD5EC;
+  --sp-text: #1C1A2B;
+  --sp-text-muted: #6B6980;
+  --sp-text-faint: #9491A8;
+  --sp-primary: #4F3CC9;
+  --sp-primary-dark: #3C2DA3;
+  --sp-primary-soft: #EFECFC;
+  --sp-accent: #8B5CF6;
+  --sp-accent-soft: #F3EEFE;
+  --sp-success: #14804A;
+  --sp-success-soft: #E7F7EF;
+  --sp-warning: #92660B;
+  --sp-warning-soft: #FBF1DC;
+  --sp-danger: #B4293A;
+  --sp-danger-soft: #FBEAEC;
+  --sp-radius-sm: 10px;
+  --sp-radius: 14px;
+  --sp-radius-lg: 20px;
+  --sp-shadow-sm: 0 1px 2px rgba(28, 26, 43, 0.05);
+  --sp-shadow: 0 4px 16px rgba(28, 26, 43, 0.06);
+  --sp-shadow-lg: 0 16px 40px rgba(28, 26, 43, 0.10);
+
+  background: var(--sp-bg);
+  color: var(--sp-text);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.shepilot-app ::selection {
+  background: var(--sp-primary-soft);
+  color: var(--sp-primary-dark);
+}
+
+/*
+ * html is the ONLY element that should own a scrollbar. Nothing here gives
+ * body or #root an explicit height (no 100vh/height:100%) or its own
+ * overflow-y — that combination (a fixed-height wrapper + overflow-y:auto)
+ * is what produces a second, independent scrollbar. As long as no
+ * component introduces that pairing, min-h-screen sections (e.g. the Hero)
+ * stay in normal flow and only the browser's single scrollbar ever shows.
+ */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
