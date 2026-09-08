@@ -1,0 +1,200 @@
+{
+  "aesthetic": "tesla-inspired",
+  "layout_archetype": "bento",
+  "design_reference": "tesla",
+  "fonts": {
+    "display": {
+      "family": "Archivo",
+      "weights": [
+        700,
+        800
+      ]
+    },
+    "body": {
+      "family": "Inter",
+      "weights": [
+        400,
+        500
+      ]
+    }
+  },
+  "tokens": {
+    "colors": {
+      "accent": "#ce60f0",
+      "primary": "#15192e",
+      "scheme": "dark",
+      "secondary": "#464efe"
+    },
+    "typography": {
+      "bodyFont": "Inter",
+      "displayFont": "Archivo",
+      "fontFamily": "Inter, system-ui, sans-serif",
+      "fontType": "sans-serif"
+    },
+    "radii": {
+      "default": "2xl (32px) on all cards and buttons",
+      "full": "9999px",
+      "lg": "1rem",
+      "sm": "0.25rem"
+    },
+    "shadows": {
+      "default": "soft extra-deep multi-layer drop shadow on all floating cards and feature glass panels",
+      "lg": "0 8px 24px rgba(0,0,0,0.2)",
+      "md": "0 4px 12px rgba(0,0,0,0.15)",
+      "sm": "0 1px 3px rgba(0,0,0,0.1)"
+    },
+    "spacing": {
+      "2xl": "6rem",
+      "lg": "2rem",
+      "md": "1rem",
+      "sm": "0.5rem",
+      "xl": "4rem",
+      "xs": "0.25rem"
+    }
+  },
+  "shared_components": [
+    {
+      "name": "Header",
+      "path": "src/components/Header.jsx",
+      "purpose": "Branding and navigation across sections of the landing page.",
+      "props": []
+    },
+    {
+      "name": "HeroSection",
+      "path": "src/components/HeroSection.jsx",
+      "purpose": "Introduce product, immediately prompt user action, set premium tone.",
+      "props": []
+    },
+    {
+      "name": "TrustedByStrip",
+      "path": "src/components/TrustedByStrip.jsx",
+      "purpose": "Build immediate social proof and credibility.",
+      "props": []
+    },
+    {
+      "name": "FeatureShowcase",
+      "path": "src/components/FeatureShowcase.jsx",
+      "purpose": "Highlight key product capabilities in a modern premium SaaS style.",
+      "props": []
+    },
+    {
+      "name": "HowItWorksSteps",
+      "path": "src/components/HowItWorksSteps.jsx",
+      "purpose": "Explain product workflow to help users visualize results.",
+      "props": []
+    },
+    {
+      "name": "TestimonialsCarousel",
+      "path": "src/components/TestimonialsCarousel.jsx",
+      "purpose": "Showcase user success stories and build trust.",
+      "props": []
+    },
+    {
+      "name": "PricingSection",
+      "path": "src/components/PricingSection.jsx",
+      "purpose": "Display pricing clearly and drive upgrades.",
+      "props": []
+    },
+    {
+      "name": "FAQAccordion",
+      "path": "src/components/FAQAccordion.jsx",
+      "purpose": "Answer common queries, remove objections to signup.",
+      "props": []
+    },
+    {
+      "name": "FinalCTA",
+      "path": "src/components/FinalCTA.jsx",
+      "purpose": "Drive final conversion before page end.",
+      "props": []
+    },
+    {
+      "name": "Footer",
+      "path": "src/components/Footer.jsx",
+      "purpose": "Wrap page with final info, legal, and social links.",
+      "props": []
+    }
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "route": "/",
+      "file": "src/pages/Home.jsx",
+      "uses": [
+        "Header",
+        "HeroSection",
+        "TrustedByStrip",
+        "FeatureShowcase",
+        "HowItWorksSteps",
+        "TestimonialsCarousel",
+        "PricingSection",
+        "FAQAccordion",
+        "FinalCTA",
+        "Footer"
+      ],
+      "layout_plan": [
+        {
+          "section": "hero",
+          "composition": "Asymmetric hero: oversized headline top-left with a primary CTA; a live metric/stat tile anchored bottom-right. Not centered."
+        },
+        {
+          "section": "bento-grid",
+          "composition": "Modular grid of UNEQUAL tiles — one large feature tile spanning 2 columns/rows, plus smaller tiles (a stat, a short quote, an image, a mini-feature). Varied sizes, never a uniform 3-up."
+        },
+        {
+          "section": "showcase",
+          "composition": "Wide product/feature band: large mockup or visual on a tinted surface, supporting copy beside it."
+        },
+        {
+          "section": "proof",
+          "composition": "Single full-width row: logo strip or 3–4 large stat numerals with small labels."
+        },
+        {
+          "section": "cta",
+          "composition": "Full-width CTA band, left-aligned headline + button on a brand-tinted surface."
+        }
+      ]
+    }
+  ],
+  "nav_links": [
+    {
+      "label": "Features",
+      "route": "#features"
+    },
+    {
+      "label": "How It Works",
+      "route": "#how"
+    },
+    {
+      "label": "Pricing",
+      "route": "#pricing"
+    },
+    {
+      "label": "Testimonials",
+      "route": "#testimonials"
+    },
+    {
+      "label": "FAQ",
+      "route": "#faq"
+    }
+  ],
+  "footer_links": [
+    {
+      "label": "About",
+      "route": "#about"
+    },
+    {
+      "label": "Features",
+      "route": "#features"
+    },
+    {
+      "label": "Pricing",
+      "route": "#pricing"
+    },
+    {
+      "label": "Contact",
+      "route": "#contact"
+    }
+  ],
+  "auth_pattern": "none",
+  "notes": "TYPOGRAPHY: display font \"Archivo\" for headings/hero, body font \"Inter\" for body/labels — load both from Google Fonts via a \u003clink\u003e in index.html and apply with Tailwind arbitrary classes (font-['Archivo'] / font-['Inter']). Do NOT substitute DM Serif Display or a generic system font.\n\nDesign DNA: Apple/Stripe/Linear/Notion premium SaaS. Glassmorphism everywhere (backdrop-blur, high alpha), deep gradient backgrounds, large radii, minimal lines, soft multi-layered shadows, beautiful modern sans-serif typography, rich dark-to-accent palette.. Animation: Framer Motion-based section fade/slide, dashboard motion, glowing hover on cards/buttons. Interaction: smooth scroll, glowing button/section hovers, stepper and carousel animations. Color scheme: dark.\n\nLAYOUT ARCHETYPE: bento — build each page from its layout_plan; do NOT collapse into a centered hero followed by a uniform 3-card grid and footer. A card grid, if used, is at most ONE section among differently-composed sections.\n\nREFERENCE DESIGN SYSTEM: tesla — this is THIS project's design system. USE its palette (tokens.colors above are taken from it) and its font stacks. DISTILL its component treatments (buttons, cards, nav), type scale + tracking, spacing rhythm, and depth/shadow system, and match its level of polish. Do NOT fall back to generic defaults (raw Tailwind gray text, #3B82F6 blue, system fonts) or invent an unrelated purple/dark theme. Brief follows:\n\n# Design System Inspired by Tesla\n\n## 1. Visual Theme \u0026 Atmosphere\n\nTesla's website is an exercise in radical subtraction — a digital showroom where the product is everything and the interface is almost nothing. The page opens with a full-viewport hero that fills the entire screen with cinematic car photography: three vehicles arranged on polished concrete against a hazy cityscape sky, with a single model name floating above in translucent white type. There are no decorative borders, no gradients, no patterns, no shadows. The UI exists only to provide just enough navigational structure to get out of the way. Every pixel that isn't product imagery is white space, and that restraint is the design system's most powerful statement.\n\nThe color philosophy is almost ascetic: a single blue (`#3E6AE1`) for primary calls to action, three shades of dark gray for text hierarchy, and white for everything else. The entire emotional weight is carried by photography — sprawling landscape shots, studio-lit vehicle profiles, and atmospheric environmental compositions that stretch edge-to-edge across each viewport-height section. The UI chrome dissolves into the imagery. The navigation bar floats above the hero with no visible background, border, or shadow — the TESLA wordmark and five navigation labels simply exist in the space, trusting the content beneath them to provide sufficient contrast.\n\nTypography recently transitioned from Gotham to Universal Sans — a custom family split into \"Display\" for headlines and \"Text\" for body/UI elements — unifying the website, mobile app, and in-car software into a single typographic voice. The Display variant renders hero titles at 40px weight 500, while the Text variant handles everything from navigation (14px/500) to body copy (14px/400). The font carries a geometric precision with slightly humanist terminals that feels engineered rather than designed — exactly matching Tesla's brand identity of technology that doesn't need to announce itself. There are no text shadows, no text gradients, no decorative type treatments. Every letterform earns its place through clarity alone.\n\n**Key Characteristics:**\n- Full-viewport hero sections (100vh) dominated by cinematic car photography with minimal overlay UI\n- Near-zero UI decoration: no shadows, no gradients, no borders, no patterns anywhere on the page\n- Single accent color — Electric Blue (`#3E6AE1`) — used exclusively for primary CTA buttons\n- Universal Sans font family (Display + Text) unifying web, app, and in-car interfaces\n- Photography-first presentation where product imagery carries all emotional weight\n- Frosted-glass navigation concept with transparent/white nav that floats over hero content\n- 0.33s cubic-bezier transitions as the universal timing for all interactive state changes\n- Carousel-driven hero with dot indicators and edge arrow navigation for multiple vehicle showcases\n- \"Ask a Question\" persistent chatbot bar anchored to the viewport bottom\n\n## 2. Color Palette \u0026 Roles\n\n### Primary\n- **Electric Blue** (`#3E6AE1`): Primary CTA button background — a confident, mid-saturation blue (rgb 62, 106, 225) that stands alone as the only chromatic color in the entire interface. Used exclusively for \"Order Now\" and other primary action buttons\n- **Pure White** (`#FFFFFF`): Dominant background color for all surfaces, panels, navigation, and secondary button fills — the canvas that lets photography breathe\n\n### Secondary \u0026 Accent\n- **Promo Blue** (`#3E6AE1`): Blue also serves for promotional text (\"0% APR Available\") displayed over hero imagery in the same hue as the CTA — creating a visual link between incentive messaging and action\n- No secondary accent colors exist. Tesla deliberately avoids color variety to maintain extreme visual discipline\n\n### Surface \u0026 Background\n- **White Canvas** (`#FFFFFF`): Page background, navigation panel, dropdown menus, and all surface containers\n- **Light Ash** (`#F4F4F4`): Subtle alternate surface for section differentiation — barely perceptible shift from pure white (rgb 244, 244, 244)\n- **Carbon Dark** (`#171A20`): Dark surface color for hero text overlays and potential dark-mode contexts (rgb 23, 26, 32) — a warm near-black with a blue undertone\n- **Frosted Glass** (`rgba(255, 255, 255, 0.75)`): Semi-transparent white for navigation backdrop-filter effects on scroll\n\n### Neutrals \u0026 Text\n- **Carbon Dark** (`#171A20`): Primary heading and navigation text — the darkest text value (rgb 23, 26, 32), used for model names, nav labels, and hero titles on light backgrounds\n- **Graphite** (`#393C41`): Body text and secondary content (rgb 57, 60, 65) — the default paragraph color, slightly warmer than pure gray\n- **Pewter** (`#5C5E62`): Tertiary text for sub-links, secondary navigation links like \"Learn\" and \"Order\" (rgb 92, 94, 98)\n- **Silver Fog** (`#8E8E8E`): Placeholder text in input fields and disabled states (rgb 142, 142, 142)\n- **Cloud Gray** (`#EEEEEE`): Light borders and divider lines (rgb 238, 238, 238)\n- **Pale Silver** (`#D0D1D2`): Subtle UI borders and delineation (rgb 208, 209, 210)\n\n### Semantic \u0026 Accent\n- Tesla's marketing site avoids semantic color coding (no green/red/yellow status indicators). Error, success, and warning states follow standard browser defaults in form contexts\n- The blue CTA (`#3E6AE1`) serves as the sole interactive color signal\n\n### Gradient System\n- No gradients are used anywhere in the interface\n- Depth is achieved entirely through photography, whitespace, and the binary contrast between full-bleed imagery and clean white surfaces\n- The navigation achieves layering through opacity (frosted glass effect) rather than gradient or shadow\n\n## 3. Typography Rules\n\n### Font Family\n- **Display**: `Universal Sans Display`, -apple-system, Arial, sans-serif — used for hero titles and large model names. A geometric sans-serif with precisely engineered proportions, recently replacing Gotham to unify Tesla's digital ecosystem (website, mobile app, vehicle interface)\n- **Text/UI**: `Universal Sans Text`, -apple-system, Arial, sans-serif — used for navigation, body copy, buttons, and all UI text. Optimized for legibility at smaller sizes with slightly wider proportions than the Display variant\n- **No OpenType features** detected — typography is completely unembellished\n- **No italic variants** observed on the marketing site\n\n### Hierarchy\n\n| Role | Size | Weight | Line Height | Letter Spacing | Notes |\n|------|------|--------|-------------|----------------|-------|\n| Hero Title | 40px (2.50rem) | 500 | 48px (1.20) | normal | Universal Sans Display, white on dark hero imagery |\n| Product Name | 17px (1.06rem) | 500 | 20px (1.18) | normal | Universal Sans Text, model names in nav panel and cards |\n| Nav Item | 14px (0.88rem) | 500 | 16.8px (1.20) | normal | Universal Sans Text, primary navigation labels |\n| Body Text | 14px (0.88rem) | 400 | 20px (1.43) | normal | Universal Sans Text, paragraph and descriptive con\n…(brief truncated)\n"
+}
