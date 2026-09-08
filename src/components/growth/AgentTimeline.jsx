@@ -98,67 +98,87 @@ function StageIcon({ done, active }) {
   return <Circle size={16} style={{ color: "var(--sp-text-faint)" }} aria-hidden="true" />;
 }
 
-function statusLabel({ done, active }) {
-  if (done) return "Done";
-  if (active) return "In progress";
+// Text label shown alongside the icon — status is never conveyed by color
+// alone. "Awaiting approval" gets its own, more specific in-progress label
+// since that stage's whole job is sitting there waiting on the founder;
+// every other stage just says "In progress" while its request is in flight.
+// This only changes the words shown for the same done/active booleans
+// computed above — it does not add a new state or touch the state logic.
+function statusLabel({ done, active, label }) {
+  if (done) return "Completed";
+  if (active) return label === "Awaiting approval" ? "Awaiting approval" : "In progress";
   return "Upcoming";
 }
 
+// Phase 5 UI polish — presentation only. The 9 stages, their order, and the
+// done/active booleans computed above are untouched; this just replaces the
+// old single squeezed-in row with a readable, responsive card grid:
+// 3 columns on desktop, 2 on tablet, 1 on mobile. Each card keeps the same
+// icon + text-label status signal as before (never color alone).
 export default function AgentTimeline(props) {
   const stages = computeStages(props);
 
   return (
     <div
-      className="flex flex-col gap-0 lg:flex-row lg:items-stretch lg:gap-0"
+      className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
       role="list"
       aria-label="Growth Agent run progress"
     >
       {stages.map((stage, i) => {
         const label = statusLabel(stage);
         return (
-          <div key={stage.label} className="flex flex-1 flex-col lg:flex-row lg:items-center">
-            <div
-              role="listitem"
-              className="w-full rounded-[12px] border p-3.5 text-left lg:min-h-[116px]"
-              style={{
-                background: stage.done
-                  ? "var(--sp-success-soft)"
-                  : stage.active
-                  ? "var(--sp-primary-soft)"
-                  : "var(--sp-surface-muted)",
-                borderColor: stage.done
-                  ? "var(--sp-success)"
-                  : stage.active
-                  ? "var(--sp-primary)"
-                  : "var(--sp-border)",
-              }}
-            >
-              <div className="flex items-center justify-between gap-2">
+          <div
+            key={stage.label}
+            role="listitem"
+            className="flex flex-col rounded-[14px] border p-4"
+            style={{
+              background: stage.done
+                ? "var(--sp-success-soft)"
+                : stage.active
+                ? "var(--sp-primary-soft)"
+                : "var(--sp-surface-muted)",
+              borderColor: stage.done
+                ? "var(--sp-success)"
+                : stage.active
+                ? "var(--sp-primary)"
+                : "var(--sp-border)",
+            }}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <span
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10.5px] font-bold"
+                style={{
+                  background: "var(--sp-surface)",
+                  color: stage.done
+                    ? "var(--sp-success)"
+                    : stage.active
+                    ? "var(--sp-primary)"
+                    : "var(--sp-text-faint)",
+                  border: "1px solid var(--sp-border)",
+                }}
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.06em]"
+                style={{
+                  background: "var(--sp-surface)",
+                  color: stage.done
+                    ? "var(--sp-success)"
+                    : stage.active
+                    ? "var(--sp-primary)"
+                    : "var(--sp-text-faint)",
+                }}
+              >
                 <StageIcon done={stage.done} active={stage.active} />
-                <span
-                  className="text-[10px] font-semibold uppercase tracking-[0.06em]"
-                  style={{
-                    color: stage.done
-                      ? "var(--sp-success)"
-                      : stage.active
-                      ? "var(--sp-primary)"
-                      : "var(--sp-text-faint)",
-                  }}
-                >
-                  {label}
-                </span>
-              </div>
-              <p className="mt-2.5 text-[13px] font-semibold text-[var(--sp-text)]">{stage.label}</p>
-              <p className="mt-1 text-[11.5px] leading-4 text-[var(--sp-text-faint)]">{stage.description}</p>
+                {label}
+              </span>
             </div>
 
-            {i < stages.length - 1 && (
-              <div
-                className="mx-auto my-1 h-5 w-px shrink-0 lg:mx-2 lg:my-0 lg:h-px lg:w-5"
-                style={{ background: "var(--sp-border-strong)" }}
-                aria-hidden="true"
-              />
-            )}
+            <p className="mt-3 text-[13.5px] font-semibold text-[var(--sp-text)]">{stage.label}</p>
+            <p className="mt-1 text-[12px] leading-5 text-[var(--sp-text-faint)]">{stage.description}</p>
           </div>
         );
       })}

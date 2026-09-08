@@ -1,4 +1,5 @@
-import { Sparkles, Target, ShieldCheck, Zap, Compass, Rocket, BarChart3, RotateCcw } from "lucide-react";
+import { Sparkles, Target, ShieldCheck, Zap, Compass, Rocket, BarChart3, RotateCcw, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import DashboardShell from "../components/app/DashboardShell";
 import SectionHeader from "../components/app/SectionHeader";
 import EmptyState from "../components/ui/EmptyState";
@@ -15,7 +16,12 @@ import NextBestAction from "../components/growth/NextBestAction";
 import { useGrowthAnalysis } from "../hooks/useGrowthAnalysis";
 import { useApprovalExecution } from "../hooks/useApprovalExecution";
 import { useEvaluation } from "../hooks/useEvaluation";
-import { getBusinessContext, hasBusinessContext } from "../utils/businessContext";
+import {
+  getBusinessContext,
+  hasBusinessContext,
+  getJourneyProgress,
+  getCurrentStage,
+} from "../utils/businessContext";
 
 // Phase 0 scaffolded the page's structure (Context Summary, Agent Timeline,
 // Opportunity & Recommendation, Approval Panel, Execution Result,
@@ -56,9 +62,17 @@ import { getBusinessContext, hasBusinessContext } from "../utils/businessContext
 // duplicate disabled "Create Payment Link" button in OpportunityResult)
 // has been removed since the flow it was hedging against is now live.
 export default function GrowthAgent() {
+  const navigate = useNavigate();
   const founderHasContext = hasBusinessContext();
   const context = founderHasContext ? getBusinessContext() : null;
   const ideaPreview = context?.ideaText ? context.ideaText.slice(0, 220) : "";
+
+  // Reuses the same journey-progress mechanism the Dashboard already uses
+  // for its "Current Stage" KPI — no new context storage, no new fields,
+  // just surfacing what getJourneyProgress()/getCurrentStage() already
+  // compute from the existing businessContext.
+  const journeyProgress = founderHasContext ? getJourneyProgress() : null;
+  const currentStage = journeyProgress ? getCurrentStage(journeyProgress) : null;
 
   const {
     fields,
@@ -165,19 +179,70 @@ export default function GrowthAgent() {
                   style={{ background: "var(--sp-accent-soft)", color: "var(--sp-accent)" }}
                 >
                   <Sparkles size={12} />
-                  Using your startup idea from earlier
+                  Context ready — using your startup idea from earlier
                 </div>
-                <p className="text-[13px] leading-6 text-[var(--sp-text-muted)]">
-                  {ideaPreview}
-                  {context?.ideaText && context.ideaText.length > 220 ? "…" : ""}
-                </p>
+
+                {/* Only fields that genuinely exist in the shared business
+                    context are shown here — the idea text itself, and the
+                    current stage already computed by getCurrentStage()
+                    (the same one the Dashboard shows). No new fields are
+                    invented and nothing is parsed out of the idea text. */}
+                <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <div>
+                    <dt className="text-[10.5px] font-semibold uppercase tracking-[0.06em] text-[var(--sp-text-faint)]">
+                      Business / idea
+                    </dt>
+                    <dd className="mt-1 text-[13px] leading-6 text-[var(--sp-text-muted)]">
+                      {ideaPreview}
+                      {context?.ideaText && context.ideaText.length > 220 ? "…" : ""}
+                    </dd>
+                  </div>
+                  {currentStage && (
+                    <div>
+                      <dt className="text-[10.5px] font-semibold uppercase tracking-[0.06em] text-[var(--sp-text-faint)]">
+                        Current stage
+                      </dt>
+                      <dd className="mt-1 text-[13px] font-semibold text-[var(--sp-text)]">
+                        {currentStage.stage}
+                      </dd>
+                      <dd className="text-[12px] leading-5 text-[var(--sp-text-faint)]">
+                        {currentStage.description}
+                      </dd>
+                    </div>
+                  )}
+                  {journeyProgress && (
+                    <div>
+                      <dt className="text-[10.5px] font-semibold uppercase tracking-[0.06em] text-[var(--sp-text-faint)]">
+                        Startup Journey progress
+                      </dt>
+                      <dd className="mt-1 text-[13px] text-[var(--sp-text-muted)]">
+                        {journeyProgress.completedCount} of {journeyProgress.total} milestones complete (
+                        {journeyProgress.percent}%)
+                      </dd>
+                    </div>
+                  )}
+                </dl>
               </div>
             ) : (
-              <EmptyState
-                emoji="💡"
-                title="No business context yet"
-                description="Complete the Business Idea tool first so the Growth Agent has something to work with."
-              />
+              <div
+                className="rounded-[16px] border border-dashed p-8 text-center sm:p-10"
+                style={{ borderColor: "var(--sp-border-strong)", background: "var(--sp-surface-muted)" }}
+              >
+                <div className="mb-3 text-4xl" aria-hidden="true">💡</div>
+                <h3 className="text-[15px] font-semibold text-[var(--sp-text)]">No business context yet</h3>
+                <p className="mx-auto mt-2 max-w-sm text-[13px] leading-5 text-[var(--sp-text-muted)]">
+                  Complete the Business Idea tool first so the Growth Agent has something to work with.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => navigate("/business-idea")}
+                  className="mt-5 inline-flex items-center gap-2 rounded-[10px] px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ background: "var(--sp-primary)" }}
+                >
+                  Build Business Context
+                  <ArrowRight size={14} />
+                </button>
+              </div>
             )}
           </GrowthSection>
 
